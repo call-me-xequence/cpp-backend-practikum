@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <thread>
+#include <optional>
 namespace net = boost::asio;
 using net::ip::tcp;
 using namespace std::literals;
