@@ -74,13 +74,14 @@ StringResponse HandleRequest(StringRequest&& req) {
         body += req.target().substr(1);
         response = text_response ( http::status::ok, body );
     }
-    else if ( req.method() == http::verb::head)
+    else if ( req.method() == http::verb::head )
     {
         response.result( http::status::ok );
     }
     else
     {
-        response.result(http::status::method_not_allowed);
+
+        response = text_response(http::status::method_not_allowed, "Invalid method" );
 
     }
 
@@ -117,6 +118,7 @@ int main() {
 
     tcp::acceptor acceptor(ioc, {address, port});
     std::cout << "Server has started..."sv << std::endl;
+
     while (true) {
         tcp::socket socket(ioc);
         acceptor.accept(socket);
