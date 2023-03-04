@@ -44,6 +44,10 @@
 # *.iml
 # *.ipr
 
+#practicum
+precode/
+samples/
+
 # CMake
 cmake-build-*/
 build-*/
